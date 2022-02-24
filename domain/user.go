@@ -1,6 +1,6 @@
 package domain
 
-import "github.com/mazrean/separated-webshell/domain/values"
+import "github.com/CPCTF2022/ssh-separator/domain/values"
 
 type User struct {
 	name values.UserName

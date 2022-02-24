@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/mazrean/separated-webshell/workspace/docker"
+	"github.com/CPCTF2022/ssh-separator/workspace/docker"
 )
 
 func main() {

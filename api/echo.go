@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/CPCTF2022/ssh-separator/api/middlewares"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/mazrean/separated-webshell/api/middlewares"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 

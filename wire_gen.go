@@ -7,16 +7,16 @@
 package main
 
 import (
+	"github.com/CPCTF2022/ssh-separator/api"
+	"github.com/CPCTF2022/ssh-separator/repository"
+	"github.com/CPCTF2022/ssh-separator/repository/badger"
+	"github.com/CPCTF2022/ssh-separator/service"
+	"github.com/CPCTF2022/ssh-separator/ssh"
+	"github.com/CPCTF2022/ssh-separator/store"
+	"github.com/CPCTF2022/ssh-separator/store/gomap"
+	"github.com/CPCTF2022/ssh-separator/workspace"
+	"github.com/CPCTF2022/ssh-separator/workspace/docker"
 	"github.com/google/wire"
-	"github.com/mazrean/separated-webshell/api"
-	"github.com/mazrean/separated-webshell/repository"
-	"github.com/mazrean/separated-webshell/repository/badger"
-	"github.com/mazrean/separated-webshell/service"
-	"github.com/mazrean/separated-webshell/ssh"
-	"github.com/mazrean/separated-webshell/store"
-	"github.com/mazrean/separated-webshell/store/gomap"
-	"github.com/mazrean/separated-webshell/workspace"
-	"github.com/mazrean/separated-webshell/workspace/docker"
 )
 
 // Injectors from wire.go:

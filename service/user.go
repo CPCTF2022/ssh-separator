@@ -8,11 +8,11 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/mazrean/separated-webshell/domain"
-	"github.com/mazrean/separated-webshell/domain/values"
-	"github.com/mazrean/separated-webshell/repository"
-	"github.com/mazrean/separated-webshell/store"
-	"github.com/mazrean/separated-webshell/workspace"
+	"github.com/CPCTF2022/ssh-separator/domain"
+	"github.com/CPCTF2022/ssh-separator/domain/values"
+	"github.com/CPCTF2022/ssh-separator/repository"
+	"github.com/CPCTF2022/ssh-separator/store"
+	"github.com/CPCTF2022/ssh-separator/workspace"
 )
 
 type IUser interface {

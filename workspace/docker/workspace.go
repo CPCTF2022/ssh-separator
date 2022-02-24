@@ -7,11 +7,11 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/CPCTF2022/ssh-separator/domain"
+	"github.com/CPCTF2022/ssh-separator/domain/values"
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/errdefs"
-	"github.com/mazrean/separated-webshell/domain"
-	"github.com/mazrean/separated-webshell/domain/values"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 )

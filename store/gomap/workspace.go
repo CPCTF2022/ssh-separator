@@ -5,9 +5,9 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/mazrean/separated-webshell/domain"
-	"github.com/mazrean/separated-webshell/domain/values"
-	"github.com/mazrean/separated-webshell/store"
+	"github.com/CPCTF2022/ssh-separator/domain"
+	"github.com/CPCTF2022/ssh-separator/domain/values"
+	"github.com/CPCTF2022/ssh-separator/store"
 )
 
 type Workspace struct {

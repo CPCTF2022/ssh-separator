@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
+	ctxManager "github.com/CPCTF2022/ssh-separator/pkg/context"
 	"github.com/dgraph-io/badger/v3"
-	ctxManager "github.com/mazrean/separated-webshell/pkg/context"
 )
 
 type Transaction struct {

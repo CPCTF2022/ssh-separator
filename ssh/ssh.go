@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/CPCTF2022/ssh-separator/domain"
+	"github.com/CPCTF2022/ssh-separator/domain/values"
+	"github.com/CPCTF2022/ssh-separator/service"
 	"github.com/gliderlabs/ssh"
-	"github.com/mazrean/separated-webshell/domain"
-	"github.com/mazrean/separated-webshell/domain/values"
-	"github.com/mazrean/separated-webshell/service"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 )
