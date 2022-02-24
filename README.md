@@ -20,7 +20,7 @@ For more information about environment variables, please see [Environment Variab
 
 example
 ```
-$ wget https://github.com/mazrean/ssh-separator/raw/main/docker-compose.yaml
+$ wget https://github.com/CPCTF2022/ssh-separator/raw/main/docker-compose.yaml
 $ docker compose up
 ```
 
