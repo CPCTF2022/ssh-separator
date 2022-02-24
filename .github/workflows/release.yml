@@ -34,7 +34,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: mazrean
+          username: CPCTF2022
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push
         uses: docker/build-push-action@v2
@@ -45,8 +45,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            ghcr.io/mazrean/${{ env.APP_IMAGE_NAME }}:latest
-            ghcr.io/mazrean/${{ env.APP_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            ghcr.io/CPCTF2022/${{ env.APP_IMAGE_NAME }}:latest
+            ghcr.io/CPCTF2022/${{ env.APP_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
   cli:
     runs-on: ubuntu-latest
     steps:
@@ -87,7 +87,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: mazrean
+          username: CPCTF2022
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push
         uses: docker/build-push-action@v2
@@ -98,5 +98,5 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            ghcr.io/mazrean/${{ env.USER_IMAGE_NAME }}:latest
-            ghcr.io/mazrean/${{ env.USER_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            ghcr.io/CPCTF2022/${{ env.USER_IMAGE_NAME }}:latest
+            ghcr.io/CPCTF2022/${{ env.USER_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
