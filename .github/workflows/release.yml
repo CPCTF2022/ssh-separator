@@ -45,8 +45,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            ghcr.io/CPCTF2022/${{ env.APP_IMAGE_NAME }}:latest
-            ghcr.io/CPCTF2022/${{ env.APP_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            asia-northeast1-docker.pkg.dev/cpctf-338715/problem/${{env.REPO_NAME}}:${{env.TAG}}
   cli:
     runs-on: ubuntu-latest
     steps:
