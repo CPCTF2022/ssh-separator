@@ -1,9 +1,9 @@
 # ssh-separator
 [![swagger](https://img.shields.io/badge/swagger-docs-brightgreen)](https://mazrean.github.io/ssh-separator/openapi/)
-[![codecov](https://codecov.io/gh/mazrean/ssh-separator/branch/main/graph/badge.svg)](https://codecov.io/gh/mazrean/ssh-separator)
-[![](https://github.com/mazrean/ssh-separator/workflows/CI/badge.svg)](https://github.com/mazrean/ssh-separator/actions)
-[![](https://github.com/mazrean/ssh-separator/workflows/Release/badge.svg)](https://github.com/mazrean/ssh-separator/actions)
-[![go report](https://goreportcard.com/badge/mazrean/ssh-separator)](https://goreportcard.com/report/mazrean/ssh-separator)
+[![codecov](https://codecov.io/gh/CPCTF2022/ssh-separator/branch/main/graph/badge.svg)](https://codecov.io/gh/CPCTF2022/ssh-separator)
+[![](https://github.com/CPCTF2022/ssh-separator/workflows/CI/badge.svg)](https://github.com/CPCTF2022/ssh-separator/actions)
+[![](https://github.com/CPCTF2022/ssh-separator/workflows/Release/badge.svg)](https://github.com/CPCTF2022/ssh-separator/actions)
+[![go report](https://goreportcard.com/badge/CPCTF2022/ssh-separator)](https://goreportcard.com/report/CPCTF2022/ssh-separator)
 
 Tool to distribute ssh connections to docker containers for each user
 
