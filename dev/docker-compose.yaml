@@ -11,7 +11,7 @@ services:
       API_PORT: 3000
       SSH_PORT: 2222
       BADGER_DIR: /tmp/badger
-      IMAGE_NAME: asia-northeast1-docker.pkg.dev/cpctf-338715/system/{repo}:{tag}
+      IMAGE_NAME: asia-northeast1-docker.pkg.dev/cpctf-338715/system/ssh-separator:latest
       IMAGE_USER: ubuntu
       IMAGE_CMD: /bin/bash
       CPU_LIMIT: 0.1
