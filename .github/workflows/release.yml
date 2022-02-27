@@ -18,8 +18,10 @@ jobs:
     env:
       DOCKER_BUILDKIT: 1
     steps:
+      - name: Set REPO_NAME env
+        run: echo "REPO_NAME=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
       - name: Set IMAGE_TAG env
-        run: echo "IMAGE_TAG=$(echo ${GITHUB_REF:11})" >> $GITHUB_ENV
+        run: echo "IMAGE_TAG=${GITHUB_REF:11}" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -45,7 +47,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            asia-northeast1-docker.pkg.dev/cpctf-338715/problem/${{env.REPO_NAME}}:${{env.TAG}}
+            asia-northeast1-docker.pkg.dev/cpctf-338715/system/${{env.REPO_NAME}}:${{env.IMAGE_TAG}}
   cli:
     runs-on: ubuntu-latest
     steps:
@@ -70,6 +72,8 @@ jobs:
     env:
       DOCKER_BUILDKIT: 1
     steps:
+      - name: Set REPO_NAME env
+        run: echo "REPO_NAME=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
       - name: Set IMAGE_TAG env
         run: echo "IMAGE_TAG=$(echo ${GITHUB_REF:11})" >> $GITHUB_ENV
       - uses: actions/checkout@v2
@@ -97,5 +101,5 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            asia-northeast1-docker.pkg.dev/cpctf-338715/problem/${{env.REPO_NAME}}:latest
-            asia-northeast1-docker.pkg.dev/cpctf-338715/problem/${{env.REPO_NAME}}:${{env.TAG}}
+            asia-northeast1-docker.pkg.dev/cpctf-338715/system/${{env.REPO_NAME}}:latest
+            asia-northeast1-docker.pkg.dev/cpctf-338715/system/${{env.REPO_NAME}}:${{env.IMAGE_TAG}}
