@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/CPCTF2022/ssh-separator/domain"
-	"github.com/CPCTF2022/ssh-separator/domain/values"
 	"github.com/docker/docker/api/types"
+	"github.com/mazrean/separated-webshell/domain"
+	"github.com/mazrean/separated-webshell/domain/values"
 )
 
 var (

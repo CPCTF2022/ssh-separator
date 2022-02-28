@@ -1,4 +1,4 @@
-module github.com/CPCTF2022/ssh-separator
+module github.com/mazrean/separated-webshell
 
 go 1.17
 

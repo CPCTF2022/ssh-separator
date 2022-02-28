@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/CPCTF2022/ssh-separator/domain/values"
-	"github.com/CPCTF2022/ssh-separator/service"
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
+	"github.com/mazrean/separated-webshell/domain/values"
+	"github.com/mazrean/separated-webshell/service"
 )
 
 var (

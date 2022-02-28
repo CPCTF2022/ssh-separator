@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/CPCTF2022/ssh-separator/domain"
-	"github.com/CPCTF2022/ssh-separator/domain/values"
-	"github.com/CPCTF2022/ssh-separator/repository"
 	"github.com/dgraph-io/badger/v3"
+	"github.com/mazrean/separated-webshell/domain"
+	"github.com/mazrean/separated-webshell/domain/values"
+	"github.com/mazrean/separated-webshell/repository"
 )
 
 type User struct {

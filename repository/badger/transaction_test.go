@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"testing"
 
-	ctxManager "github.com/CPCTF2022/ssh-separator/pkg/context"
 	badger "github.com/dgraph-io/badger/v3"
+	ctxManager "github.com/mazrean/separated-webshell/pkg/context"
 	"github.com/stretchr/testify/assert"
 )
 

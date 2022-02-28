@@ -8,9 +8,9 @@ import (
 	context "context"
 	reflect "reflect"
 
-	domain "github.com/CPCTF2022/ssh-separator/domain"
-	values "github.com/CPCTF2022/ssh-separator/domain/values"
 	gomock "github.com/golang/mock/gomock"
+	domain "github.com/mazrean/separated-webshell/domain"
+	values "github.com/mazrean/separated-webshell/domain/values"
 )
 
 // MockIUser is a mock of IUser interface.

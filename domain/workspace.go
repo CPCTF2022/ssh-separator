@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sync/atomic"
 
-	"github.com/CPCTF2022/ssh-separator/domain/values"
+	"github.com/mazrean/separated-webshell/domain/values"
 )
 
 type Workspace struct {

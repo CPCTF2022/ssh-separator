@@ -3,7 +3,7 @@ package domain
 import (
 	"io"
 
-	"github.com/CPCTF2022/ssh-separator/domain/values"
+	"github.com/mazrean/separated-webshell/domain/values"
 )
 
 type Connection struct {

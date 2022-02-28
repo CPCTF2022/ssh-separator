@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/CPCTF2022/ssh-separator/domain"
-	"github.com/CPCTF2022/ssh-separator/domain/values"
-	ctxManager "github.com/CPCTF2022/ssh-separator/pkg/context"
-	"github.com/CPCTF2022/ssh-separator/repository"
 	badger "github.com/dgraph-io/badger/v3"
+	"github.com/mazrean/separated-webshell/domain"
+	"github.com/mazrean/separated-webshell/domain/values"
+	ctxManager "github.com/mazrean/separated-webshell/pkg/context"
+	"github.com/mazrean/separated-webshell/repository"
 	"github.com/stretchr/testify/assert"
 )
 
