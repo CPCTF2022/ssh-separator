@@ -2,7 +2,7 @@ version: "3"
 
 services:
   ssh-server:
-    image: asia-northeast1-docker.pkg.dev/cpctf-338715/system/{repo}:{tag}
+    image: asia-northeast1-docker.pkg.dev/cpctf-338715/system/ssh-separator:latest
     environment:
       API_PORT: 3000
       SSH_PORT: 2222
