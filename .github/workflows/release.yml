@@ -36,8 +36,8 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: asia-northeast1-docker.pkg.dev
-          username: CPCTF2022
-          password: ${{ steps.auth.outputs.access_token }}
+          username: _json_key
+          password: ${{ secrets.GAR_SYSTEM_REPOSITORY_ACCOUNT }}
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
@@ -90,8 +90,8 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: asia-northeast1-docker.pkg.dev
-          username: CPCTF2022
-          password: ${{ steps.auth.outputs.access_token }}
+          username: _json_key
+          password: ${{ secrets.GAR_SYSTEM_REPOSITORY_ACCOUNT }}
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
