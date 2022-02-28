@@ -18,8 +18,10 @@ jobs:
     env:
       DOCKER_BUILDKIT: 1
     steps:
+      - name: Set REPO_NAME env
+        run: echo "REPO_NAME=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
       - name: Set IMAGE_TAG env
-        run: echo "IMAGE_TAG=$(echo ${GITHUB_REF:11})" >> $GITHUB_ENV
+        run: echo "IMAGE_TAG=${GITHUB_REF:11}" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -30,12 +32,12 @@ jobs:
         uses: docker/setup-buildx-action@v1
       - name: Show available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
-      - name: Login to GitHub Container Registry
+      - name: Login to Google Artifact Registry
         uses: docker/login-action@v1
         with:
-          registry: ghcr.io
-          username: mazrean
-          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: asia-northeast1-docker.pkg.dev
+          username: _json_key
+          password: ${{ secrets.GAR_SYSTEM_REPOSITORY_ACCOUNT }}
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
@@ -45,8 +47,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            ghcr.io/mazrean/${{ env.APP_IMAGE_NAME }}:latest
-            ghcr.io/mazrean/${{ env.APP_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            asia-northeast1-docker.pkg.dev/cpctf-338715/system/${{env.REPO_NAME}}:${{env.IMAGE_TAG}}
   cli:
     runs-on: ubuntu-latest
     steps:
@@ -71,6 +72,8 @@ jobs:
     env:
       DOCKER_BUILDKIT: 1
     steps:
+      - name: Set REPO_NAME env
+        run: echo "REPO_NAME=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
       - name: Set IMAGE_TAG env
         run: echo "IMAGE_TAG=$(echo ${GITHUB_REF:11})" >> $GITHUB_ENV
       - uses: actions/checkout@v2
@@ -83,12 +86,12 @@ jobs:
         uses: docker/setup-buildx-action@v1
       - name: Show available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
-      - name: Login to GitHub Container Registry
+      - name: Login to Google Artifact Registry
         uses: docker/login-action@v1
         with:
-          registry: ghcr.io
-          username: mazrean
-          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: asia-northeast1-docker.pkg.dev
+          username: _json_key
+          password: ${{ secrets.GAR_SYSTEM_REPOSITORY_ACCOUNT }}
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
@@ -98,5 +101,5 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            ghcr.io/mazrean/${{ env.USER_IMAGE_NAME }}:latest
-            ghcr.io/mazrean/${{ env.USER_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            asia-northeast1-docker.pkg.dev/cpctf-338715/system/${{env.REPO_NAME}}:latest
+            asia-northeast1-docker.pkg.dev/cpctf-338715/system/${{env.REPO_NAME}}:${{env.IMAGE_TAG}}
