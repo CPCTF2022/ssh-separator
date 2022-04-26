@@ -4,15 +4,10 @@ on:
   push:
     tags:
       - v*.*.*
-    branches-ignore:
-      - '**'
 
-env:
-  APP_IMAGE_NAME: ssh-separator
-  USER_IMAGE_NAME: ssh-separator-ubuntu
 
 jobs:
-  app_image:
+  image:
     name: Build App Image
     runs-on: ubuntu-latest
     env:
@@ -21,17 +16,10 @@ jobs:
       - name: Set REPO_NAME env
         run: echo "REPO_NAME=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
       - name: Set IMAGE_TAG env
-        run: echo "IMAGE_TAG=${GITHUB_REF:11}" >> $GITHUB_ENV
+        run: echo "IMAGE_TAG=${GITHUB_REF:10}" >> $GITHUB_ENV
       - uses: actions/checkout@v3
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-        with:
-          platforms: all
       - name: Set up Docker Buildx
-        id: buildx
         uses: docker/setup-buildx-action@v1
-      - name: Show available platforms
-        run: echo ${{ steps.buildx.outputs.platforms }}
       - name: Login to Google Artifact Registry
         uses: docker/login-action@v1
         with:
@@ -43,63 +31,10 @@ jobs:
         with:
           context: .
           push: true
-          platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
             asia-northeast1-docker.pkg.dev/cpctf-338715/system/${{env.REPO_NAME}}:${{env.IMAGE_TAG}}
-  cli:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.16
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v2
-        with:
-          version: latest
-          args: release --rm-dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  user_image:
-    name: Build User Image
-    runs-on: ubuntu-latest
-    env:
-      DOCKER_BUILDKIT: 1
-    steps:
-      - name: Set REPO_NAME env
-        run: echo "REPO_NAME=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
-      - name: Set IMAGE_TAG env
-        run: echo "IMAGE_TAG=$(echo ${GITHUB_REF:11})" >> $GITHUB_ENV
-      - uses: actions/checkout@v3
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-        with:
-          platforms: all
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-      - name: Show available platforms
-        run: echo ${{ steps.buildx.outputs.platforms }}
-      - name: Login to Google Artifact Registry
-        uses: docker/login-action@v1
-        with:
-          registry: asia-northeast1-docker.pkg.dev
-          username: _json_key
-          password: ${{ secrets.GAR_SYSTEM_REPOSITORY_ACCOUNT }}
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: ./docker/
-          push: true
-          platforms: linux/amd64,linux/arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          tags: |
             asia-northeast1-docker.pkg.dev/cpctf-338715/system/${{env.REPO_NAME}}:latest
-            asia-northeast1-docker.pkg.dev/cpctf-338715/system/${{env.REPO_NAME}}:${{env.IMAGE_TAG}}
+
+
