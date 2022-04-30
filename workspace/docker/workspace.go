@@ -145,8 +145,9 @@ func (w *Workspace) Recreate(ctx context.Context, workspace *domain.Workspace) (
 		Tty:   true,
 	}, &container.HostConfig{
 		Resources: container.Resources{
-			NanoCPUs: cpuLimit,
-			Memory:   memoryLimit,
+			NanoCPUs:  cpuLimit,
+			Memory:    memoryLimit,
+			PidsLimit: &pidsLimit,
 		},
 	}, nil, nil, ctnName)
 	if err != nil {
