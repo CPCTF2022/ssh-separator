@@ -40,6 +40,7 @@ See [OpenAPI](https://mazrean.github.io/ssh-separator/openapi/) for details.
 |IMAGE_CMD|Shell in user containers.|/bin/bash|
 |CPU_LIMIT|The number of CPUs to allocate to user containers.|0.5|
 |MEMORY_LIMIT|Memory limits for user containers.|1024|
+|PIDS_LIMIT|Limit the number of processes to user containers|-1|
 |BADGER_DIR|Directory where user data is stored.|/var/lib/ssh-separator|
 |PROMETHEUS|If true, provide metrics for prometheus.|true|
 

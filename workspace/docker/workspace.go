@@ -25,6 +25,7 @@ var (
 	stopTimeout = 10 * time.Second
 	cpuLimit    int64
 	memoryLimit int64
+	pidsLimit   int64
 )
 
 var containerCounter = promauto.NewGaugeVec(prometheus.GaugeOpts{
@@ -52,6 +53,17 @@ func NewWorkspace() (*Workspace, error) {
 	}
 	memoryLimit = int64(floatMemoryLimit * 1e6)
 
+	strPidsLimit, ok := os.LookupEnv("PIDS_LIMIT")
+	if !ok {
+		pidsLimit = -1
+	} else {
+		floatPidsLimit, err := strconv.ParseFloat(strPidsLimit, 64)
+		if err != nil {
+			return nil, fmt.Errorf("invalid pids limit: %w", err)
+		}
+		pidsLimit = int64(floatPidsLimit)
+	}
+
 	return &Workspace{}, nil
 }
 
@@ -63,8 +75,9 @@ func (w *Workspace) Create(ctx context.Context, userName values.UserName) (*doma
 		Tty:   true,
 	}, &container.HostConfig{
 		Resources: container.Resources{
-			NanoCPUs: cpuLimit,
-			Memory:   memoryLimit,
+			NanoCPUs:  cpuLimit,
+			Memory:    memoryLimit,
+			PidsLimit: &pidsLimit,
 		},
 	}, nil, nil, ctnName)
 	if errdefs.IsConflict(err) {
